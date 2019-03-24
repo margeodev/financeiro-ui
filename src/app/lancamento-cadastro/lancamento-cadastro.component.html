@@ -3,7 +3,10 @@
     <div class="ui-g-12">
       <h1>Novo Lançamento</h1>
     </div>
-    <form>
+
+    <!------- FORMULÁRIO ------->
+    <form #f="ngForm" autocomplete="off">
+
       <!------- BOTÕES TIPO ------->
       <div class="ui-g-12">
         <p-selectButton [options]="tipos" #tipo></p-selectButton>
@@ -12,7 +15,7 @@
       <!------- VENCIMENTO / PAGAMENTO ------->
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
-        <p-calendar dateFormat="dd/mm/yy" readonlyInput=true showIcon="true"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" readonlyInput=true showIcon="true" name="Vencimento" ngModel #vencimento="ngModel" required></p-calendar>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -23,23 +26,26 @@
       <!------- DESCRIÇÃO / VALOR ------->
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label for="descricao">Descrição</label>
-        <input type="text" id="descricao" pInputText>
+        <input type="text" id="descricao" name="descricao" ngModel #descricao="ngModel" pInputText required>         
+        <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label for="valor">Valor</label>
-        <input id="valor" pInputText currencyMask  [options]="{ prefix: '', thousands: '.', decimal: ',' }"/>
+        <input id="valor" pInputText name="valor" ngModel currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',' }" 
+          name="valor" ngModel #valor="ngModel" required/>
+        <app-message [control]="valor" error="required" text="Informe o valor"></app-message>
       </div>
 
       <!------- CATEGORIA / PESSOA ------->
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Categoria</label>
-        <p-dropdown [options]="categorias" placeholder="Selecione" #categoria></p-dropdown>
+        <p-dropdown [options]="categorias" placeholder="Selecione" #categoria  name="categoria" ngModel #categoria="ngModel" required></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Pessoa</label>
-        <p-dropdown [options]="pessoas" placeholder="Selecione" #pessoa filter="true"></p-dropdown>
+        <p-dropdown [options]="pessoas" placeholder="Selecione" #pessoa filter="true" #pessoa  name="pessoa" ngModel #pessoa="ngModel" required></p-dropdown>
       </div>
 
       <!------- OBSERVAÇÃO ------->
@@ -48,8 +54,9 @@
         <textarea rows="3" id="observacao" pInputTextarea></textarea>
       </div>
 
+      <!------- BOTÕES DE CONTROLE ------->
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" [disabled]="f.invalid" label="Salvar"></button>
         <button pButton type="button" style="margin:0 8px" label="Novo"></button>
         <a href="#">Voltar para a pesquisa</a>
       </div>

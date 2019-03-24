@@ -1,26 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule }                 from '@angular/core';
+import { FormsModule }              from '@angular/forms';
+import { BrowserModule }            from '@angular/platform-browser';
+import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 
+import { AppComponent }     from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
-import { InputTextModule } from 'primeng/components/inputtext/inputtext';
-import { ButtonModule }    from 'primeng/components/button/button';
-import { TableModule }     from 'primeng/components/table/table';
-import { TooltipModule }         from 'primeng/components/tooltip/tooltip';
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
-import { FormsModule } from '@angular/forms';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
+import { ButtonModule }        from 'primeng/components/button/button';
+import { CalendarModule }      from 'primeng/components/calendar/calendar';
+import { DropdownModule }      from 'primeng/components/dropdown/dropdown';
+import { InputMaskModule }     from 'primeng/components/inputMask/inputMask';
+import { InputTextModule }     from 'primeng/components/inputtext/inputtext';
 import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtextarea';
-import { CalendarModule } from 'primeng/components/calendar/calendar';
-import { SelectButtonModule } from 'primeng/components/selectbutton/selectbutton';
-import { DropdownModule } from 'primeng/components//dropdown/dropdown';
-import { InputMaskModule } from 'primeng/components/inputMask/inputMask';
+import { MessageModule }       from 'primeng/components/message/message';
+import { MessagesModule }      from 'primeng/components/messages/messages';
+import { SelectButtonModule }  from 'primeng/components/selectbutton/selectbutton';
+import { TableModule }         from 'primeng/components/table/table';
+import { TooltipModule }       from 'primeng/components/tooltip/tooltip';
+
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentoCadastroComponent }  from './lancamento-cadastro/lancamento-cadastro.component';
+import { NavbarComponent }              from './navbar/navbar.component';
+import { PessoasPesquisaComponent }     from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { PessoaCadastroComponent }      from './pessoa-cadastro/pessoa-cadastro.component';
+
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { MessageComponent } from './message/message.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +36,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     PessoasPesquisaComponent,
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
+    MessageComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,7 +49,9 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     FormsModule,
     InputMaskModule,
     InputTextModule,
-    InputTextareaModule, 
+    InputTextareaModule,
+    MessageModule,
+    MessagesModule,
     SelectButtonModule,
     TableModule,
     TooltipModule

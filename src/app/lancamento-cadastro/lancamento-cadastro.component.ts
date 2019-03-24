@@ -22,6 +22,7 @@ export class LancamentoCadastroComponent implements OnInit {
     {label:'Carlos Pereira', value: 2}
   ];
 
+
   constructor() { }
 
   ngOnInit() {

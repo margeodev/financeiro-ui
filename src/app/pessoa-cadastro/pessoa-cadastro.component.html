@@ -3,22 +3,28 @@
     <div class="ui-g-12">
       <h1>Nova Pessoa</h1>
     </div>
-    <form>
+
+    <!------- FORMULÁRIO ------->
+    <form #f="ngForm" autocomplete="off">
+
       <!------- NOME ------->
       <div class="ui-g-12 ui-fluid">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" pInputText>
+        <input type="text" id="nome" pInputText name="nome" ngModel #nome="ngModel" required>
+        <app-message [control]="nome" error="required" text="Informe o nome"></app-message>
       </div>
 
       <!------- LOGRADOURO / NUMERO ------->
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label for="logradouro">Logradouro</label>
-        <input type="text" id="logradouro" pInputText>
+        <input type="text" id="logradouro" pInputText name="logradouro" ngModel #logradouro="ngModel" required>
+        <app-message [control]="logradouro" error="required" text="Informe o Logradouro"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label for="numero">Número</label>
-        <input type="text" id="numero" pInputText>
+        <input type="text" id="numero" pInputText name="numero" ngModel #numero="ngModel" required>
+        <app-message [control]="numero" error="required" text="Informe o Numero"></app-message>
       </div>
 
       <!------- COMPLEMENTO / BAIRRO / CEP ------->
@@ -29,28 +35,32 @@
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label for="bairro">Bairro</label>
-        <input type="text" id="bairro" pInputText>
+        <input type="text" id="bairro" pInputText name="bairro" ngModel #bairro="ngModel" required>
+        <app-message [control]="bairro" error="required" text="Informe o Bairro"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label for="cep">CEP</label>
-        <p-inputMask mask="99999-999" id="cep"></p-inputMask>
+        <p-inputMask mask="99999-999" id="cep" name="cep" ngModel #cep="ngModel" required></p-inputMask>
+        <app-message [control]="cep" error="required" text="Informe o CEP"></app-message>
       </div>
 
       <!------- CIDADE / ESTADO ------->
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label for="cidade">Cidade</label>
-        <input type="text" id="cidade" pInputText>
+        <input type="text" id="cidade" pInputText name="cidade" ngModel #cidade="ngModel" required>
+        <app-message [control]="cidade" error="required" text="Informe a Cidade"></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label for="estado">Estado</label>
-        <input type="text" id="estado" pInputText>
+        <input type="text" id="estado" pInputText name="estado" ngModel #estado="ngModel" required>
+        <app-message [control]="estado" error="required" text="Informe o Estado"></app-message>
       </div>
 
       <!------- BOTÕES DE CONTROLE ------->
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" [disabled]="f.invalid" label="Salvar"></button>
         <button pButton type="button" style="margin:0 8px" label="Novo"></button>
         <a href="#">Voltar para a pesquisa</a>
       </div>
