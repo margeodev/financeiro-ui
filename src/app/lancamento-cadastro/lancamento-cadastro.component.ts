@@ -22,7 +22,6 @@ export class LancamentoCadastroComponent implements OnInit {
     {label:'Carlos Pereira', value: 2}
   ];
 
-  myModel = 10;
   constructor() { }
 
   ngOnInit() {
