@@ -26,7 +26,7 @@
       <!------- DESCRIÇÃO / VALOR ------->
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label for="descricao">Descrição</label>
-        <input type="text" id="descricao" name="descricao" ngModel #descricao="ngModel" pInputText required>         
+        <input type="text" id="descricao" name="descricao" ngModel #descricao="ngModel" pInputText required> 
         <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
       </div>
 
@@ -34,8 +34,8 @@
         <label for="valor">Valor</label>
         <input id="valor" pInputText name="valor" ngModel currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',' }" 
           name="valor" ngModel #valor="ngModel" required/>
-        <app-message [control]="valor" error="required" text="Informe o valor"></app-message>
-      </div>
+          <app-message [control]="valor" error="required" text="Informe o valor"></app-message>
+        </div>
 
       <!------- CATEGORIA / PESSOA ------->
       <div class="ui-g-12 ui-md-6 ui-fluid">
